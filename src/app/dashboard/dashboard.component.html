@@ -1,0 +1,44 @@
+<div class="jumbotron">
+    <h1 class="display-4 text-center mb-2">Dashboard</h1>
+    <p class=" text-center mb-5">Upload Banner</p>
+
+
+    <div class="container">
+        <form [formGroup]="form" (ngSubmit)="submitForm()">
+            <!-- Progress Bar -->
+            <div class="progress form-group" *ngIf="fileUploadService['percentDone']">
+                <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                    [style.width.%]="fileUploadService['percentDone']"></div>
+            </div>
+
+            <!-- Image Preview -->
+
+
+            <!-- File Input -->
+            <div class="form-group">
+                <input class="form-control" type="file"  (change)="uploadFile($event)" />
+            </div>
+
+
+            <!-- Submit -->
+            <div class="form-group">
+                
+                <button class="btn btn-success btn-block btn-lg">Upload</button>
+            </div>
+        </form>
+        <div>
+        <form [formGroup]="pageForm" (ngSubmit)="onPageSubmit()">
+    
+            <div class="form-group">
+                <input class="form-control"  formControlName="page"  type="text" placeholder="Create a new Page" />
+            </div>
+
+
+            <!-- Submit -->
+            <div class="form-group">
+                <button class="btn btn-success btn-block btn-lg">Create Page </button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
